@@ -1,0 +1,15 @@
+List of Python Files and their Corresponding Functions
+
+1.	replace_zeroes.py: This is used to pre-process the original dataset (dataset_final.csv) containing zero values. The zeroes were replaced using multiple imputation. Multiple imputation is a statistical technique for handling missing data by generating multiple imputed datasets and analyzing each of them separately. The results are then combined to obtain a final estimate that considers the uncertainty introduced by the missing values. The processed data frame is saved in dataset_no_zeroes.csv.
+
+2.	factor_analysis.py: This program codes to generate factors from the 40 personality trait questions (The pre-processed version of the dataset, saved in dataset_no_zeroes.csv, was used). Based on the eigenvalues >= 1, we extracted 7 factors (personality traits). However, after testing 5, 6, and 7 factors using oblimin (an oblique rotation method) and varimax (an orthogonal rotation method), the 5-factor (in both method cases) had the lowest number of cases of cross-loadings and low loadings. 
+
+The factor (personality trait) scores for each participant were also generated with the scores saved in factor_scores.csv.
+
+3.	cluster.py: The program was fed the 5 personality trait scores of the participants (factor_score.csv) to cluster the individuals using the K-Mean clustering and Gaussian mixture model. The silhouette scores for the clustering techniques were also calculated to determine the better-performing technique. 
+
+4.	predict.py: The 5 personality trait scores were used to predict the math ability of the participants using linear and logistic regression models. The dataset was split into two: 70% of it was used for training, and the remaining for testing. The R2 (coefficient of determination) scores were calculated to determine the better of the two algorithms.
+
+5.	top_20_math.py: This program computed the correlation between each of the questionnaire responses and math scores in the pre-processed dataset (dataset_no_zeroes.csv) to identify the top 20 questions to determine math ability. The absolute values of the correlations were sorted in descending order to sort out the top 20 correlated questions with math.  
+
+6.	top_20_other_project.py: The program determined the top 20 questions based on personality traits. It calculated the average factor loading (the absolute values of the loadings were used) for each of the 40 questions. The results were then sorted in descending order to determine the top 20 questions.
