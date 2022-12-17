@@ -1,5 +1,7 @@
 List of Python Files and their Corresponding Functions
 
+The python programs should be run in the following order:
+
 1.	replace_zeroes.py: This is used to pre-process the original dataset (dataset_final.csv) containing zero values. The zeroes were replaced using multiple imputation. Multiple imputation is a statistical technique for handling missing data by generating multiple imputed datasets and analyzing each of them separately. The results are then combined to obtain a final estimate that considers the uncertainty introduced by the missing values. The processed data frame is saved in dataset_no_zeroes.csv.
 
 2.	factor_analysis.py: This program codes to generate factors from the 40 personality trait questions (The pre-processed version of the dataset, saved in dataset_no_zeroes.csv, was used). Based on the eigenvalues >= 1, we extracted 7 factors (personality traits). However, after testing 5, 6, and 7 factors using oblimin (an oblique rotation method) and varimax (an orthogonal rotation method), the 5-factor (in both method cases) had the lowest number of cases of cross-loadings and low loadings. 
